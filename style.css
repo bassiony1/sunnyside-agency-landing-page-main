@@ -1,0 +1,263 @@
+* , *::after , *::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font : inherit;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    display: block;
+}
+ul {
+    list-style: none;
+}
+button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+img {
+    display: block;
+    width: 100%;
+}
+.asider{
+    max-width: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    background-color: rgb(0 0 0 /.4 );
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+}
+.asider.show {
+    max-width: 100vw;
+}
+.asider.show .menu-items li a {
+    opacity: 1;
+    transition-delay: .2s;
+}
+.asider.show .menu .btn {
+    scale: 1;
+    transition-delay: 0s ,  .4s;
+}
+.menu {
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    display: flex;
+    padding: 10px;
+    flex-direction: column; 
+    gap: 60px;
+    background-color:white;
+    cursor: default !important;
+}
+.menu i {
+    font-size: 20px;
+    align-self: flex-end;
+    padding: 20px;
+    cursor: pointer;
+}
+.menu-items {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-direction: column;
+}
+.menu-items li a{
+    cursor: pointer;
+    opacity: 0;
+    font-weight: bold;
+    color: var(--Gray);
+    font-size: 18px;
+    transition: all .3s ease-in-out;
+
+}
+
+.menu-items li a:hover {
+    color: rgb(12, 10, 10);
+}
+.nav .burger-icon{
+    font-size: 20px;
+    cursor: pointer;
+    color: rgb(12, 10, 10);
+    display: none;
+    transition: all .3s ease-in-out;
+}
+.asider .menu .btn {
+    scale: 0;
+    background-color: rgb(24, 24, 24);
+    color: white;
+    border-radius: 100vw;
+    text-align: center;
+    transition: background-color .3s ease-in-out , scale .5s ease-in-out;
+}
+.nav .burger-icon:hover{
+    scale: 1.1;
+    opacity: .6;
+}
+.header {
+    background-image: url("images/desktop/image-header.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    gap: 120px;
+}
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+.nav .logo {
+    width: 120px;
+}
+.nav .links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: auto;
+    margin-right: 30px;
+}
+.nav .link a {
+    font-size: 13px;
+}
+.nav .burger-icon {
+    color: white;
+}
+.btn {
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 100vw;
+    font-size: 13px;
+    color: black;
+    transition: .4S;
+}
+.btn:hover {
+    scale: .9;
+}
+.header-title {
+    align-self: center;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    letter-spacing: 10px;
+    text-align: center;
+}
+.arrow-down {
+    position: absolute;
+    width: 60px;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+.even-cols {
+    display: flex;
+}
+.even-cols > picture {
+    width: 50%;
+}
+.even-cols .card {
+    width: 50%;
+}
+.card {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 40px;
+}
+.card .title {
+    font-size: 30px;
+    font-weight: bold;
+    padding-inline: 40px;
+}
+.card .desc {
+    padding-inline: 40px;
+}
+
+.card .more {
+    padding-left:40px ;
+    font-weight: bold;
+    color: black;
+    position: relative;
+}
+.card .more::before {
+    content: '';
+    position: absolute;
+    width: 60%;
+    color: #8f424200;
+    box-shadow: 2px 20px 8px 3px hsl(51deg 80% 49% / 50%);
+    transition: .5s;
+}
+.card .more:hover::before {
+    box-shadow: 2px 25px 3px 3px hsl(51, 100%, 49%);
+
+}
+
+
+
+@media screen and (max-width :800px){
+    .header {
+        background-image: url("images/mobile/image-header.jpg");
+    }
+    .header .nav .links , .header .nav .btn {
+        display: none;
+    }
+    .header .nav .burger-icon {
+        display: block;
+    }
+    .even-cols {
+        flex-direction: column;
+    }
+    .even-cols .card , .even-cols picture{
+        width: 100%;
+    }
+    .even-cols:first-child{
+        flex-direction: column-reverse;
+    }
+    .even-cols .card {
+        padding: 100px 10px;
+    align-items: center;
+    gap: 64px;
+        
+    }
+    .even-cols .card .title {
+        text-align: center;
+    }
+    .even-cols .card .desc {
+        text-align: center;
+    padding-inline: 40px;
+    line-height: 1.5;
+    font-size: 17px;
+    width: 80%;
+    }
+    .even-cols .card .more {
+        padding: 0;
+    }
+    .even-cols .card .more::before {
+        width: 100%;
+    }    
+}
