@@ -4,12 +4,20 @@
     margin: 0;
     font : inherit;
 }
-
+:root {
+--Very-dark-desaturated-blue: hsl(212, 27%, 19%);
+--Very-dark-grayish-blue: hsl(213, 9%, 39%);
+--Dark-grayish-blue: hsl(232, 10%, 55%);
+--Grayish-blue: hsl(210, 4%, 67%);
+--White: hsl(0, 0%, 100%);
+}
 html {
     scroll-behavior: smooth;
 }
 body {
     min-height: 100vh;
+    font-family: 'Fraunces', serif;
+    font-family: 'Barlow', sans-serif;
 }
 
 a {
@@ -155,12 +163,16 @@ img {
     transition: .4S;
 }
 .btn:hover {
-    scale: .9;
+    scale: 1.1;
+    color: white;
+    background-color: hsl(200, 100%, 72%);
 }
 .header-title {
     align-self: center;
     color: white;
-    font-weight: bold;
+    font-weight: 900;
+    font-family: 'Fraunces', serif;
+    
     font-size: 40px;
     letter-spacing: 10px;
     text-align: center;
@@ -178,8 +190,45 @@ img {
 .even-cols > picture {
     width: 50%;
 }
-.even-cols .card {
+.even-cols .card  , .even-cols .l-pic , .even-cols .r-pic{
     width: 50%;
+}
+.even-cols .l-pic , .even-cols .r-pic {
+    position: relative;
+}
+.even-cols .data {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    bottom: 50%;
+    left: 50%;
+    translate: -50% 120%;
+}
+.even-cols .data h3 {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 900;
+    font-family: 'Fraunces', serif;
+
+}
+.even-cols .data p {
+    font-size: 18px;
+    text-align: center;
+    
+}
+.even-cols:nth-child(3) .l-pic .data h3{
+    color: hsl(169, 47%, 23%);
+}
+.even-cols:nth-child(3) .l-pic .data p{
+    color: hsl(168, 32%, 39%);
+}
+.even-cols:nth-child(3) .r-pic .data h3{
+    color: hsl(200, 67%, 26%);
+}
+.even-cols:nth-child(3) .r-pic .data p{
+    color:hsl(197, 54%, 39%) ;
 }
 .card {
     display: flex;
@@ -193,15 +242,19 @@ img {
     font-size: 30px;
     font-weight: bold;
     padding-inline: 40px;
+    font-weight: 900;
+    font-family: 'Fraunces', serif;
+    color: hsl(212, 24%, 19%);
 }
 .card .desc {
     padding-inline: 40px;
+    color: hsl(249, 6%, 54%);
 }
 
 .card .more {
     padding-left:40px ;
     font-weight: bold;
-    color: black;
+    color: hsl(212, 24%, 19%);
     position: relative;
 }
 .card .more::before {
@@ -209,15 +262,130 @@ img {
     position: absolute;
     width: 60%;
     color: #8f424200;
-    box-shadow: 2px 20px 8px 3px hsl(51deg 80% 49% / 50%);
+    box-shadow: 2px 20px 8px 3px hsl(51 100% 49%/ 50%);
     transition: .5s;
 }
 .card .more:hover::before {
     box-shadow: 2px 25px 3px 3px hsl(51, 100%, 49%);
-
+}
+.card:nth-child(2) .more::before {
+ 
+    box-shadow: 2px 20px 8px 3px hsl(7 99% 70% / 50%);
+ 
+}
+.card:nth-child(2) .more:hover::before {
+    box-shadow: 2px 25px 3px 3px hsl(7 99% 70% );
 }
 
+.wrapper {
+    max-width: 1440px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-block: 8rem;
+}
+.wrapper .title {
+    align-self: center;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    color: hsl(220, 2%, 67%);
+    font-weight: 700;
+    font-family: 'Fraunces', serif;
 
+}
+.test {
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(300px , 1fr));
+    gap: 40px;
+}
+.test .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    padding: 20px;
+}
+.test .card .desc {
+    text-align: center;
+    max-width: 50ch;
+    color: hsl(330, 1%, 54%);
+}
+.test .card .prof-img {
+    width: 80px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+.test .card .writer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+.test .card .writer .name{
+    font-weight: 700;
+    font-family: 'Fraunces', serif;
+    color: hsl(218, 26%, 19%);
+}
+.test .card .writer .work {
+    color: hsl(20, 4%, 83%);
+}
+.slider {
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(300px , 1fr));
+
+}
+.footer {
+    min-height: 40vh;
+    background-color: hsl(167, 44%, 70%) ;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+}
+.footer .logo {
+    font-size: 30px;
+    font-weight: 900;
+    font-family: 'Fraunces', serif;
+    color: hsl(168, 45%, 31%);
+}
+.footer .links {
+    color: hsl(167, 34%, 39%);
+    gap: 50px;
+}
+.footer .link{
+    cursor: pointer;
+    user-select: none;
+}
+.footer .link:hover {
+    color: white;
+}
+.footer .socials {
+    color: hsl(168, 45%, 31%);
+    gap: 20px;
+}
+.footer i {
+    font-size: 25px;
+    cursor: pointer;
+}
+.footer i:hover {
+    color: white;
+}
+.footer .socials , .footer .links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media screen and (width < 1118px){
+    .even-cols .data {
+        translate: -50% 65%;
+    }
+}
 
 @media screen and (max-width :800px){
     .header {
@@ -232,7 +400,7 @@ img {
     .even-cols {
         flex-direction: column;
     }
-    .even-cols .card , .even-cols picture{
+    .even-cols .card , .even-cols > picture ,  .even-cols .l-pic , .even-cols .r-pic{
         width: 100%;
     }
     .even-cols:first-child{
@@ -259,5 +427,9 @@ img {
     }
     .even-cols .card .more::before {
         width: 100%;
-    }    
+    }
+    .even-cols .data {
+        translate: -50% 120%;
+    }
+  
 }
